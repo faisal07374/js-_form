@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h2>JavaScript Strings</h2>
+
+  <p>Strings are written with quotes. You can use single or double quotes:</p>
+
+  <p id="demo"></p>
+
+  <script>
+    let carName1 = "Volvo XC60";
+    let carName2 = 'Volvo XC60';
+    document.getElementById("demo").innerHTML = carName1 + "<br>" + carName2;
+
+  </script>
+
+  <h2>JavaScript Booleans</h2>
+
+  <p>Booleans can have two values: true or false:</p>
+
+  <p id="demo1"></p>
+
+  <script>
+    let x = 5;
+    let y = 5;
+    let z = 6;
+
+    document.getElementById("demo1").innerHTML =
+      (x == y) + "<br>" + (x == z);
+  </script>
+
+  <h2>JavaScript Arrays</h2>
+
+  <p>Array indexes are zero-based, which means the first item is [0].</p>
+
+  <p id="demo2"></p>
+
+  <script>
+    const cars = ["Saab", "Volvo", "BMW"];
+
+    document.getElementById("demo2").innerHTML = cars[0];
+  </script>
+
+  <h2>JavaScript Objects</h2>
+
+  <p id="demo3"></p>
+
+  <script>
+    const person = {
+      firstName: "John",
+      lastName: "Doe",
+      age: 50,
+      eyeColor: "blue"
+    };
+
+    document.getElementById("demo3").innerHTML = person.lasttName + " is " + person.age + " years old.";
+
+    document.getElementById("demo3").innerHTML = person.firstName + " is " + person.eyeColor + " years old ";
+  </script>
+
+  <h1>JavaScript Functions</h1>
+
+  <p>Call a function which performs a calculation and returns the result:</p>
+
+  <p id="demo4"></p>
+
+  <script>
+    function myFunction(p1, p2) {
+      return p1 * p2;
+    }
+
+    let result = myFunction(4, 3);
+    document.getElementById("demo4").innerHTML = result;
+  </script>
+
+  <!-- <script>
+    for (let a = 1; a <= 10; a++) {
+      document.write("Hello PC <br>")
+    }
+  </script> -->
+
+
+  <!-- For Loop -->
+  <!-- <script>
+  for (var a = 1; a <= 10; a++) {
+    if (a % 2 == 0) {
+      document.write(a + "<br>");
+    }
+  }
+</script> -->
+
+  <!-- 
+  <script>      //Nested For Loop
+    for(var a = 1 ; a <= 100 ; a = a +10){
+      for(var b = a ; b < a + 10 ; b++){
+        document.write(b + "  ");
+      }
+      document.write("<br>")
+
+    }
+  </script>
+  
+  <script>
+    for (var a = 1; a <= 5; a++) {
+      for (var b = 1; b <= a; b++) {  
+        document.write(a + "  ");
+      }
+      document.write("<br>"); // Adds a line break after each row 
+    }
+  </script>
+
+
+  <script>        // Nested Reverse For Loop
+    for(var a =5; a >=1; a--){
+      for(var b = a; b >= 1; b--){
+        document.write(b + "  ")
+      }
+      document.write("<br>")
+    }
+  </script>
+ -->
+
+  <!-- 
+  <script>        // JavaScript Arrays
+    var ary = [10, 20, 30, 40, 50, 60];
+    var sum = 0; // Initialize sum to 0
+
+    document.write("<ul>");
+    for (var a = 0; a <= 4; a++) {
+      document.write("<li>" + ary[a] + "</li>");
+      sum = sum + ary[a];
+    }
+    document.write("</ul>");
+    document.write("Total Sum : " + sum);
+  </script>
+
+  <script>        // JavaScript Arrays
+    var ary = new Array(3);
+    ary[0] = 10;
+    ary[1] = "Harry"
+    ary[3] = "true"
+
+    var sum = 0; // Initialize sum to 0
+
+    document.write("<ul>");
+    for (var a = 0; a <= 4; a++) {
+      document.write("<li>" + ary[a] + "</li>");
+    }
+    document.write("</ul>");
+  </script>
+
+
+ <script>        // JavaScript arrays TO get data from user
+  var ary = new Array(3);
+
+  for(var g = 0; g < 3; g++){
+    ary[g] = prompt("Enter The Value : ");
+  }
+
+  var sum = 0; // Initialize sum to 0
+
+  document.write("<ul>");
+  for (var a = 0; a <= 4; a++) {
+    document.write("<li>" + ary[a] + "</li>");
+  }
+  document.write("</ul>");
+</script>
+ -->
+
+
+  <!-- 
+  <script>        // Javascript Multidimentional Array
+    var ary = [
+      ["harry",15,"Male","B.com"],
+      ["Jarry",13,"Female","BCA"],
+      ["Tom",12,"Male","TCS"],
+      ["Toll",11,"Male","BTS"],
+    ]
+    document.write(ary.length);       //Ary length means u can write more arrays
+    for(var a = 0; a < ary.length; a++){
+      for(var b = 0; b < 4; b++){
+        document.write(ary[a][b] + " ")
+      }
+      document.write("<br>");
+    }
+    
+  </script>
+
+<script>              // Edit or Remove Elements
+  var a = ["harry",15,"Male","B.com"]
+  document.write(a + "<br>");
+  a[0] = "Sunny";
+  document.write(a + "<br>");
+  a[1] = 20;
+  document.write(a + "<br>");
+  delete a[2];
+  document.write(a + "<br>"); 
+</script>
+ -->
+
+  <!-- 
+  <script>  // Sort ; Reverse ; POP ; Push ; Shift ; UnShift
+    var a = ["Shah","Faheem","Alisha","Kamaran"]
+    document.write(a + " <br><br> ")
+    a.sort();
+    document.write(a + "<br>");
+    a.reverse();
+    document.write(a + "<br>");
+    a.pop();
+    document.write(a + "<br>");
+    a.push("Salman");
+    document.write(a + "<br>");
+    a.shift();
+    document.write(a + "<br>");
+    a.unshift("Rahul");
+    document.write(a + "<br>");
+  </script>
+
+
+  <script>    // Concat is also called merge ; join ; 
+
+    var a = ["Lodhi","Jutt","Naila","jano"];
+
+    var b = a.concat("Turbine","Motor");
+
+    var c = b.join(" / ");
+    document.write(c);
+
+    // var c = a.concat(b);
+    // document.write(c + "<br><br>");
+    // var d = c.join(" / ");
+    // document.write(d);
+    
+
+  </script>
+ -->
+
+  <!-- 
+  <script>    // Slice ; Splice 
+    var a = ["Lodhi","Jutt","Naila","jano"];
+    document.write(a + "<br><br>");
+    var b = a.slice(1,3);
+    document.write(b) + "<br><br>";
+  </script>
+
+  <script>    
+    var a = ["Lodhi","Jutt","Naila","jano"];
+    document.write(a + "<br><br>");
+    a.splice(1,0,"Naha","karan");
+    document.write(a) + "<br><br>";
+  </script>
+ -->
+
+  <!-- 
+  <script>      // IndexOf & LastindexOf & Incluides
+    var a = ["Aman", "Ali", "Asjad", "Ali", "Jutt"];
+    document.write(a + "<br><br>");
+    var b = a.indexOf("Ali", 2);
+    document.write(b + "<br><br>");
+
+    var c = ["Aman", "Ali", "Asjad", "Ali", "Jutt"];
+    document.write(c + "<br><br>");
+    var d = a.indexOf("Ali", 2);
+    document.write(d + "<br><br>");
+
+    var e = ["Aman", "Ali", "Asjad", "Ali", "Jutt"];  //includes
+    document.write(e + "<br><br>");
+    var f = a.includes("Ali");
+    document.write(f + "<br><br>");
+
+  </script>
+ -->
+
+  <!-- 
+<script>        // Array Some & Every Methods
+  var age = [2, 1, 12, 14, 11];
+  document.write(age + "<br><br>")
+  var b = age.some(checkAdult);     // just replace some with every to chk all values
+  document.write(b + "<br><br>")
+
+  function checkAdult(age){
+    return age >= 18;
+  }
+
+  var ages = [2, 21, 122, 14, 18];
+  document.write(ages + "<br><br>");
+  var c = ages.find(checkAdult);    // "Find" just chk 1st value & return true
+  document.write(c + "<br><br>");   // "Findindex" is used to find index no.
+
+  function checkAdult(age){
+    return age >= 18;
+  }
+
+</script> -->
+
+<!-- 
+  <script>
+    var age = [10, 12, 19, 20, 18];
+    document.write(age + "<br><br>");
+
+    var a = age.filter(checkAdult);
+    document.write(a + "<br><br>");
+
+    function checkAdult(age) {
+      return age >= 18;
+    }
+
+    var a = ["Rahul ", " Karan ", " Kirti ", " Nomi ", " joth "];
+    a.toString();               // we can use "fill" function to replace all random values with static
+    document.write(a);
+
+  </script>
+ -->
+
+<!-- 
+  <script>
+    var a = ["Jami" , "Haji", "Mozam", "Ali"];
+    a.forEach(function(Value , index){
+      document.write(index +" : " + Value + "<br><br>");
+
+    })
+  </script> -->
+
+<!-- 
+  <script>      // Object Array
+    var a = {
+      firstname : 'Yahoo',
+      lastName  : 'Baba',
+      age : 25,
+      email : 'YahooBaba.net',
+      favmovies :['Dhoom, Ankhi ,jhool'],
+      salary : function(){
+        return 25000;
+      },
+    }
+    document.write(a.favmovies);
+  </script>
+   -->
+
+<!--   
+  <script>    // Object Array for two properties
+    var student = {
+      firstname : 'Yahoo',
+      lastName  : 'Baba',
+      age : 25,
+      email : 'YahooBaba.net',
+    }
+  //   var student = [
+  //     {name : "NABEEL", age : 24},
+  //     {name : "Hiba", age : 22},
+  //     {name : "NAVeedd", age : 21}
+  // ];
+
+  // console.log(student);
+  // for (var a = 0; a < student.length; a++){
+  //   document.write(student[a].name + " " + student[a].age + "<br>");
+  // }
+
+  for (var key in student){
+    document.write(student[key] + "<br>")
+  }
+  </script>
+ -->
+
+<!-- 
+ <script>     // Map Methode
+  var arr = [10, 11, 12, 15];
+
+  var b = arr.map(test);
+  document.write(b + "<br>")
+
+  function test(x) {
+    return x * 10;
+  }
+ </script> -->
+
+<!-- 
+ <Script>     // String Methodes
+  var str = "Javascript is a snake of long TAIL";
+  // var a = str.slice(3,10);
+  // var a = str.split(" ");
+  // var a = str.repeat(2);
+  // var a = str.substr(3);
+  // var a = str.substring(3 , 5);
+  // var a = str.toString();
+  // var a = str.valueOf();
+  // var a = str.replace("Javascript", "PHP");
+  // var a = str.charAt(2);
+  // var a = str.search("a");
+  // var a = str.match(/is/g);
+  // var a = str.startsWith("Javascript");
+  // var a = str.includes("is");
+  // var a = str.toLowerCase();
+  
+  document.write(a);
+ </Script>
+ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

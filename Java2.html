@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Java1.js">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <title>Document</title>
+  <style>
+    #box{
+      background-color: yellow;
+      width: 100px;
+      height: 100px;
+      transition: 2s ease all;
+    }
+  </style>
+</head>
+<body>
+  
+  <button id="btn">Click Me!</button>
+  <div id="box">Box</div>
+
+  <script>
+    var btn = document.getElementById("btn")
+    var box = document.getElementById("box")
+
+    btn.onclick = function()
+    {
+      box.style.transform = "translatey(100px)";
+    }
+  </script>
+
+  
+  
+
+</body>
+</html>

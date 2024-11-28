@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Java3.css">
+  <title>Login-Form</title>
+</head>
+
+<body>
+
+  <div class="container">
+    <form method="post">
+      <h3>Sign up</h3>
+      <div class="inputbox">
+        <input type="text" id="email" placeholder="Email" required>
+      </div>
+      <div class="inputbox">
+        <input type="password" id="password" placeholder="Password" required>
+      </div>
+      <div class="remember-me">
+        <span><input type="checkbox"> Remember-me</span>
+        <a href="#">Forget Password?</a>
+      </div>
+      <button type="submit" class="btn">Sign up</button>
+      <div class="register">
+        <p>Don't have an account?<a href="#"> Register</a></p>
+      </div>
+    </form>
+  </div>
+
+
+  <script>
+    // var submit = document.getElementsByClassName(".btn");
+    var submit = document.querySelector(".btn");
+    submit.onclick = function (e) {
+      e.preventDefault();
+
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+
+      // Example of predefined correct credentials
+      var correctEmail = "jz728459@gmail.com";
+      var correctPassword = "123456";
+
+      if (email === correctEmail && password === correctPassword) {
+        alert("Login Successful");
+      } else {
+        alert("Invalid email or password");
+      }
+    }
+  </script>
+
+</body>
+
+</html>
