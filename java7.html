@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="java7.css">
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <title>Form with Validation</title>
+</head>
+
+<body>
+  <div></div>
+  <form id="myForm">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="form">
+            <h1>Form</h1>
+
+            <!-- First Name -->
+            <div class="formgroup">
+              <label for="firstName">First Name</label>
+              <input type="text" id="firstName" name="firstName" required>
+              <span class="error" id="firstNameError" aria-live="polite"></span>
+            </div>
+
+            <!-- Last Name -->
+            <div class="formgroup">
+              <label for="lastName">Last Name</label>
+              <input type="text" id="lastName" name="lastName" required>
+              <span class="error" id="lastNameError" aria-live="polite"></span>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="formgroup">
+              <label for="phone">Phone Number</label>
+              <input type="text" id="phone" name="phone" required>
+              <span class="error" id="phoneError" aria-live="polite"></span>
+            </div>
+
+            <!-- Gender -->
+            <div class="formgroup">
+              <fieldset>
+                <legend>Gender</legend>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="gender" value="Male" required> Male
+                  </label>
+                  <label>
+                    <input type="radio" name="gender" value="Female" required> Female
+                  </label>
+                </div>
+                <span class="error" id="genderError" aria-live="polite"></span>
+              </fieldset>
+            </div>
+
+            <!-- Date of Birth -->
+            <div class="formgroup">
+              <label for="dob">Date of Birth</label>
+              <input type="date" id="dob" name="dob" required>
+              <span class="error" id="dobError" aria-live="polite"></span>
+            </div>
+
+            <!-- Hobbies -->
+            <div class="formgroup">
+              <label for="hobbies">Hobbies</label>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" name="hobbies" value="Football"> Football
+                </label>
+                <label>
+                  <input type="checkbox" name="hobbies" value="Hockey"> Hockey
+                </label>
+                <label>
+                  <input type="checkbox" name="hobbies" value="Poetry"> Poetry
+                </label>
+                <label>
+                  <input type="checkbox" name="hobbies" value="Cricket"> Cricket
+                </label>
+                <label>
+                  <input type="checkbox" name="hobbies" value="Gardening"> Gardening
+                </label>
+              </div>
+              <span class="error" id="hobbiesError" aria-live="polite"></span>
+            </div>
+
+            <!-- City -->
+            <div class="formgroup">
+              <label for="city">City</label>
+              <select name="city" id="city" required>
+                <option value="">Select a city</option>
+                <option value="Karachi">Karachi</option>
+                <option value="Lahore">Lahore</option>
+                <option value="Islamabad">Islamabad</option>
+                <option value="Quetta">Quetta</option>
+                <option value="Peshawar">Peshawar</option>
+              </select>
+              <span class="error" id="cityError" aria-live="polite"></span>
+            </div>
+
+            <!-- Message -->
+            <div class="formgroup">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" required></textarea>
+              <span class="error" id="messageError" aria-live="polite"></span>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <script>
+    document.getElementById('myForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Clear previous errors
+      document.querySelectorAll('.error').forEach(el => el.textContent = '');
+      let isValid = true;
+
+      // Validate First Name
+      const firstName = document.getElementById('firstName').value.trim();
+      if (!firstName) {
+        isValid = false;
+        document.getElementById('firstNameError').textContent = 'First name is required.';
+      }
+
+      // Validate Last Name
+      const lastName = document.getElementById('lastName').value.trim();
+      if (!lastName) {
+        isValid = false;
+        document.getElementById('lastNameError').textContent = 'Last name is required.';
+      }
+
+      // Validate Phone Number
+      const phone = document.getElementById('phone').value.trim();
+      if (!phone || phone.length < 10 || isNaN(phone)) {
+        isValid = false;
+        document.getElementById('phoneError').textContent = 'Phone number must be at least 10 digits.';
+      }
+
+      // Validate Gender
+      const gender = document.querySelector('input[name="gender"]:checked');
+      if (!gender) {
+        isValid = false;
+        document.getElementById('genderError').textContent = 'Please select a gender.';
+      }
+
+      // Validate Date of Birth
+      const dob = document.getElementById('dob').value;
+      if (!dob) {
+        isValid = false;
+        document.getElementById('dobError').textContent = 'Date of Birth is required.';
+      }
+
+      // Validate Hobbies
+      const hobbies = Array.from(document.querySelectorAll('input[name="hobbies"]:checked'))
+        .map(checkbox => checkbox.value);
+      if (hobbies.length === 0) {
+        isValid = false;
+        document.getElementById('hobbiesError').textContent = 'Please select at least one hobby.';
+      }
+
+      // Validate City
+      const city = document.getElementById('city').value;
+      if (!city) {
+        isValid = false;
+        document.getElementById('cityError').textContent = 'Please select a city.';
+      }
+
+      // Validate Message
+      const message = document.getElementById('message').value.trim();
+      if (!message) {
+        isValid = false;
+        document.getElementById('messageError').textContent = 'Message is required.';
+      }
+
+      // If valid, log data and alert success
+      if (isValid) {
+        console.log(`First Name: ${firstName}`);
+        console.log(`Last Name: ${lastName}`);
+        console.log(`Phone Number: ${phone}`);
+        console.log(`Gender: ${gender.value}`);
+        console.log(`Date of Birth: ${dob}`);
+        console.log(`Hobbies: ${hobbies.join(', ')}`);
+        console.log(`City: ${city}`);
+        console.log(`Message: ${message}`);
+        alert('Form submitted successfully! Check the console for details.');
+      }
+    });
+  </script>
+</body>
+
+</html>
